@@ -1,0 +1,278 @@
+:root {
+    --dark-bg: #100f1c;                 /* Fundo principal (roxo/azul muito escuro) */
+    --vibrant-purple: #a855f7;          /* Roxo neon principal para brilhos e destaques */
+    --light-purple: #c084fc;            /* Roxo mais claro para gradientes */
+    --card-bg: rgba(23, 22, 38, 0.5);   /* Fundo dos cards (efeito de vidro) */
+    --border-color: rgba(168, 85, 247, 0.2); /* Cor da borda sutil dos cards */
+    --text-primary: #f1f5f9;            /* Cor do texto principal (quase branco) */
+    --text-secondary: #a3a3a3;         /* Cor do texto secundário (cinza claro) */
+    --glow-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+/* --- Configurações Globais --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    /* Efeito de brilho de fundo, como na imagem */
+    background-image: radial-gradient(ellipse at 50% -20%, rgba(168, 85, 247, 0.3), transparent 70%);
+    background-repeat: no-repeat;
+}
+
+/* --- Header e Navegação Flutuante --- */
+header {
+    background: rgba(16, 15, 28, 0.7); /* Fundo da navegação com transparência */
+    backdrop-filter: blur(10px);      /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--vibrant-purple);
+    text-shadow: var(--glow-shadow);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--vibrant-purple);
+    text-shadow: 0 0 10px var(--vibrant-purple);
+}
+
+/* --- Estilo Geral das Seções --- */
+.section {
+    padding: 8rem 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    color: var(--vibrant-purple);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-shadow: var(--glow-shadow);
+}
+
+/* --- Seção Home (Introdução) --- */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#home .intro h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+#home .intro p {
+    font-size: 1.5rem;
+    color: var(--light-purple);
+}
+
+/* --- Seção Sobre Mim --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--vibrant-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.about-text h3 {
+    color: var(--light-purple);
+}
+.about-text ul {
+    list-style-type: "✓  ";
+    padding-left: 20px;
+}
+.about-text p, .about-text li {
+    color: var(--text-secondary);
+}
+
+/* --- Botões e Links --- */
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--vibrant-purple), var(--light-purple));
+    color: var(--text-primary);
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 1rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--vibrant-purple);
+}
+
+.link {
+    color: var(--light-purple);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* --- Grade de Projetos (Glassmorphism Cards) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(5px); /* Efeito de vidro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--vibrant-purple);
+    box-shadow: 0 0 20px var(--border-color);
+}
+
+.project-card h3 {
+    color: var(--light-purple);
+    margin-top: 0;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+}
+
+/* --- Lista de Publicações --- */
+.publication-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publication-list li {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--vibrant-purple);
+    transition: background-color 0.3s;
+}
+
+.publication-list li:hover {
+    background-color: rgba(23, 22, 38, 0.8);
+}
+
+/* --- Formulário de Contato --- */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+    background-color: #1e1d30;
+    color: var(--text-primary);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--vibrant-purple);
+    box-shadow: 0 0 10px var(--border-color);
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: #100f1c;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem 0;
+}
+/* --- Estilos para os Ícones Sociais no Rodapé --- */
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    margin: 0 0.75rem;
+    font-size: 1.5rem; /* Tamanho do ícone */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--vibrant-purple);
+    transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+}
